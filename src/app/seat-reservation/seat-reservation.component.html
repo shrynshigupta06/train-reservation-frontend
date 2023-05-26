@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="header">
+      <h2>Train Seat Reservation</h2>
+      <p>Number of seats available: {{ seatsAvailable }}</p>
+    </div>
+    <div class="content">
+      <form [formGroup]="seatForm" (submit)="reserveSeats()" class="seat-form">
+        <label for="numSeats" class="form-label">Number of Seats:</label>
+        <input type="number" formControlName="numSeats" min="1" max="7" class="form-input">
+        <button type="submit" [disabled]="seatForm.invalid" class="form-button">Reserve</button>
+      </form>
+      <p class="reserved-seats" *ngIf="reservedSeats.length > 0">Reserved seats: {{ reservedSeats.join(', ') }}</p>
+    </div>
+  </div>
+  
